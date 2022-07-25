@@ -4,21 +4,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
-    stats: {
-        errorDetails: true
-    },
-    resolve: {
-        fallback: {
-            "fs": false,
-        }
-    },
     entry: {
         app: path.resolve(__dirname, "./src/index.js")
     },
     output: {
         path: path.resolve(__dirname, "./dist"),
         filename: "[name].js",
-        assetModuleFilename: "assets/[name][ext]"
     },
     devtool: "source-map",
     devServer: {
@@ -49,10 +40,6 @@ module.exports = {
                         presets: ['@babel/preset-env', '@babel/preset-react']
                     }
                 }
-            },
-            {
-                test: /\.(png|svg|jpg|jpeg|gif|$)/i,
-                type: "asset/resource"
             },
         ]
     },
