@@ -1,0 +1,20 @@
+export const icons = [
+    "FaAward",
+    "FaShoppingCart",
+    "FaFootballBall",
+    "FaPhone",
+    "FaHouseDamage",
+    "FaCar",
+    "FaMoneyBillAlt",
+    "FaBook",
+    "FaGlasses",
+    "FaLaptopCode",
+    "FaHorse",
+    "FaTree",
+    "FaBicycle",
+    "FaChair",
+    "FaBabyCarriage",
+    "FaUtensils",
+    "FaStore",
+    "FaTrash"
+]

@@ -1,0 +1,78 @@
+@use "../globals/colors" as *;
+@use "../utils/" as *;
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: #00000040;
+    z-index: 999;
+}
+
+.result {
+    --flow-space: #{pxToRem(22)};
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(pxToRem(550), 89%);
+    padding: pxToRem(32) pxToRem(18);
+    background-color: #F2F2F2;
+    border-radius: pxToRem(16);
+
+    @include breakpoint(medium){
+        padding-inline: pxToRem(45);
+    }
+
+    &__announce {
+        text-align: center;
+        color: $subTitle-sfcText;
+        font-weight: 500;
+
+        > h2 {
+            color: $black;
+            margin-bottom: pxToRem(14);
+        }
+    }
+
+    &__ranking {
+        --flow-space: #{pxToRem(16)};
+        font-weight: 500;
+
+        & > .winner{ // > :not(:last-child)
+            background-color: $menu-bgClr;
+        }
+
+        & > :not(.winner){ //:last-child{
+            color: $subTitle-sfcText;
+        }
+
+        & p {
+            justify-content: space-between;            
+        }
+
+        & p > :last-child{
+            font-size: var(--fs-subTtile);
+            font-weight: 700;
+        }
+
+        > div {
+            padding: pxToRem(20) pxToRem(22);
+            border-radius: pxToRem(8);
+        }
+
+    }
+
+    &__controls {
+        --gap: #{pxToRem(16)};
+        justify-content: space-between;
+        font-weight: 500;
+
+        > button {
+            flex-basis: 50%;
+            padding: pxToRem(10) pxToRem(8);
+            font-size: var(--fs-subTtile);
+            border: 0;
+            border-radius: pxToRem(24);
+        }
+    }
+}

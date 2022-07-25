@@ -1,0 +1,123 @@
+@use "./typography.scss" as *;
+@use "./colors.scss" as *;
+@use "../utils/" as *;
+
+// css reset written by piccalil.li
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html:focus-within{
+    scroll-behavior: smooth;
+}
+
+body{
+    min-height: 100vh;
+    font-family: var(--font-main);
+    font-size: var(--fs-btn);
+    color: $white;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+ul {
+    list-style: none;
+}
+
+a:not([class]) {
+    text-decoration-skip: auto;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+input {
+    cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.1;
+}
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+.flex, .grid {
+    gap: var(--gap);
+}
+
+// background color & color styling for btns
+.bg-btns-menu{
+    background-color: $surface-color;
+}
+
+.bg-orange{
+    background-color: $surfaceColor;
+}
+
+.clr-btns {
+    color: $menu-btnBgClrs;
+}
+
+.clr-white {
+    color: $white;
+}
+
+.input-style{
+    width: 50%;
+    border: 0;
+    background-color: transparent;
+    color: inherit;
+    text-align: right;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.nw-game-hover:hover{
+    background-color: hsl(37deg, 98%, 47%);
+}
+
+.reset-ctrl-hover:hover {
+    background-color: hsl(204, 20%, 74%);
+}

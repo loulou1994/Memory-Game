@@ -1,0 +1,220 @@
+@use "../utils" as *;
+@use "../globals/typography" as *;
+@use "../globals/colors" as *;
+
+.game {
+    --flow-space: #{pxToRem(44)};
+    width: min(pxToRem(900), 85%);
+    margin: pxToRem(24) auto;
+    align-items: center;
+
+    @include breakpoint(medium){
+        --flow-space: #{pxToRem(60)};
+    }
+
+    @include breakpoint(large){
+        --flow-space: #{pxToRem(50)};
+    }
+
+    &__title {
+        font-size: var(--fs-title);
+        color: $menu-bgClr;
+        text-align: center;
+        grid-area: logo;
+        
+        @include breakpoint(medium){
+            text-align: left;
+        }
+    }
+
+    &__board {
+        --gap: #{pxToRem(8)};
+        width: min(pxToRem(490), 100%);
+        margin-inline: auto;
+        grid-area: board;
+        
+        @include breakpoint(medium){
+            --gap: #{pxToRem(13)};
+        }
+
+        > button {
+            padding-block: 0;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-color: transparent;
+            
+            > div {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                transform-style: preserve-3d;
+                transition: transform 350ms ease-in-out;
+                border-radius: inherit;
+            }
+            
+            .token-unflipped, .token-container {
+                position: absolute;
+                // width: 100%;
+                // height: 100%;
+                inset: 0;
+                border-radius: inherit;
+                backface-visibility: hidden;
+            }
+            
+            .token-unflipped {
+                background-color: $menu-btnBgClrs;    
+            }
+
+            .token-container {
+                font-size: var(--fs-title);
+                font-weight: 700;
+                transform: rotateX(180deg);
+
+                & > svg {
+                    flex-basis: 45%;
+                    height: auto;
+                }
+
+                > span, svg {
+                    margin: auto;
+                }
+
+            }
+        }
+    }
+
+    &__players-nbr {
+        --gap: #{pxToRem(42) 0};
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        font-weight: 500;
+        grid-area: score;
+        
+        @include breakpoint(medium){
+            --gap: #{pxToRem(50) pxToRem(75)};
+            justify-content: space-evenly;
+        }
+
+        @include breakpoint(large){
+            --gap: 0;
+            justify-content: space-between;
+        }
+
+        & > div{
+            width: min(pxToRem(238), 40%);
+            padding: pxToRem(13) pxToRem(8);
+            color: $subTitle-sfcText;
+            background-color: $players-bg;
+            border-radius: pxToRem(8);
+            justify-content: space-between;
+            align-items: center;
+
+            @include breakpoint(medium){
+                padding-inline: pxToRem(12);
+            }
+
+            @include breakpoint(large){
+                max-width: pxToRem(158);
+            }
+            
+            &.active-player {
+                position: relative;
+                color: $white;
+                background-color: $surfaceColor;
+                font-weight: 700;
+                
+                &::before {
+                    position: absolute;
+                    content: "";
+                    bottom: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    border: pxToRem(15) solid;
+                    border-color: transparent transparent $surfaceColor transparent;
+                }
+            }
+            > .player-playing {
+                position: absolute;
+                width: 100%;
+                font-size: var(--fs-active-player);
+                top: 110%;
+                left: 50%;
+                text-align: center;
+                transform: translateX(-50%);
+            }
+            > span:last-child {
+                color: $menu-btnBgClrs;
+            }
+        }
+
+        input {
+            width: 30%;
+        }
+    }
+
+    &__solo-mode {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        color: $menu-btnBgClrs;
+        grid-area: solo-mode;
+
+        @include breakpoint(medium){
+            justify-content: space-around;
+        }
+
+        @include breakpoint(large){
+            --gap: #{pxToRem(32)};
+            justify-content: center;
+        }
+
+        & > .timer-wrapper, & > .moves-wrapper {
+            flex-basis: min(pxToRem(200), 46%);
+            justify-content: space-between;
+            padding: pxToRem(12) pxToRem(8);
+            background-color: $surface-color;
+            border-radius: pxToRem(8);
+            font-weight: 700;        
+
+            > input {
+                color: $menu-bgClr;
+            }
+        }
+    }
+
+    &__controls {
+        grid-area: controls;
+        --gap: #{pxToRem(18)};
+        flex-direction: column;
+        align-items: center;
+        font-size: var(--fs-subTtile);
+        font-weight: 700;
+        
+        @include breakpoint(medium){
+            --flow-space: 0;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+
+        & > button {
+            width: 65%;
+            padding-block: pxToRem(8);
+            border: 0;
+            border-radius: pxToRem(23);
+
+            @include breakpoint(medium){
+                width: min(pxToRem(180), 45%);
+                padding-block: pxToRem(10);
+                border-radius: pxToRem(27);;
+            }
+        }
+
+        &:nth-child(1){
+            color: $white;
+        }
+
+        &:last-child{
+            color: $menu-btnBgClrs;
+        }
+    }
+}

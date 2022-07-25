@@ -1,0 +1,21 @@
+@use "../utils/" as *;
+@use "../globals/colors.scss" as *;
+
+.container {
+    width: min(pxToRem(900), 90%);
+    margin: pxToRem(32) auto;
+}
+
+.flow > :where(
+    :not(:first-child)){
+    margin-top: var(--flow-space, #{pxToRem(0)});
+}
+
+.menu-btns {
+    padding-block: #{pxToRem(8)};
+    border: 0;
+    // border-radius: #{pxToRem(28)};
+    border-radius: var(--br-radius);
+    color: $white;
+    font-weight: 500;
+}

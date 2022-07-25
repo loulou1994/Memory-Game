@@ -1,0 +1,27 @@
+.is-flipped {
+    animation: flipUp 300ms ease-in-out forwards;;
+}
+
+@keyframes flipUp {
+    from {
+        transform: rotateX(0deg);
+    }
+
+    to {
+        transform: rotateX(180deg);
+    }
+}
+
+.is-unflipped {
+    animation: flipDown 550ms ease-in-out forwards;
+}
+
+@keyframes flipDown {
+    from {
+        transform: rotateX(180deg);
+    }
+
+    to {
+        transform: rotateX(0);
+    }
+}

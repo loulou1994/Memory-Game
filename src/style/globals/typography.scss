@@ -1,0 +1,25 @@
+@use "../utils/" as *;
+
+:root {
+    --fs-title: #{pxToRem(24)};
+    --fs-subTtile: #{pxToRem(18)};
+    --fs-btn: #{pxToRem(16)};
+    --fs-active-player: #{pxToRem(14)};
+    --font-main: 'Roboto', sans-serif;;
+    --br-radius: #{pxToRem(28)};
+    
+    @include breakpoint(medium){
+        --fs-title: #{pxToRem(28)};        
+        --fs-subTtile: #{pxToRem(20)};
+        --fs-btn: #{pxToRem(18)};
+        --fs-active-player: #{pxToRem(15)};
+    }
+    
+    @include breakpoint(large){
+        --fs-title: #{pxToRem(32)};
+        --fs-subTtile: #{pxToRem(22)};
+        --fs-btn: #{pxToRem(20)};
+        --fs-active-player: #{pxToRem(16)};
+        --br-radius: #{pxToRem(32)};
+    }
+}
