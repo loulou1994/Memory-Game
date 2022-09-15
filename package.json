@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "The Popular memory game design \bed \u001b[2~\u001b[2~\u001b[2~\u001b[2~by the frontendmentor website. Enjoy the game!",
   "main": "index.js",
+  "homepage": "https://github.com/loulou1994/Memory-Game",
   "scripts": {
     "serve": "webpack serve --mode development",
-    "build": "webpack --node-env production"
+    "build": "webpack --node-env production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [
     "Guessing",
@@ -25,6 +28,7 @@
     "@babel/preset-react": "^7.17.12",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
     "sass": "^1.52.2",
